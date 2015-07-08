@@ -10,4 +10,9 @@
 
 @implementation HomeTopItem
 
++(instancetype)item
+{
+    return [[[NSBundle mainBundle] loadNibNamed:@"HomeTopItem" owner:nil options:nil] firstObject];
+}
+
 @end

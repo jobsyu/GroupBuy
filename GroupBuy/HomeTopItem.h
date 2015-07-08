@@ -10,4 +10,6 @@
 
 @interface HomeTopItem : UIView
 
++(instancetype)item;
+
 @end
