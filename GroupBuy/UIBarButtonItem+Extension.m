@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  UIBarButtonItem+Extension.m
 //  GroupBuy
 //
 //  Created by qianfeng on 15/7/8.
 //  Copyright (c) 2015年 ycp. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "UIBarButtonItem+Extension.h"
 
-@interface ViewController : UIViewController
-
+@implementation UIBarButtonItem (Extension)
 
 @end
-
