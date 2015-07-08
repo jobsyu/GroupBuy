@@ -6,11 +6,18 @@
 //  Copyright (c) 2015年 ycp. All rights reserved.
 //
 
+#define rightNavWidth 60
+
 #import "HomeViewController.h"
 #import "HomeTopItem.h"
+#import "CategoryViewController.h"
 
 @interface HomeViewController()
+@property (nonatomic,weak) UIBarButtonItem *categoryItem;
+@property (nonatomic,weak) UIBarButtonItem *cityItem;
+@property (nonatomic,weak) UIBarButtonItem *sortItem;
 
+@property (nonatomic,strong) UIPopoverController *popover;
 
 @end
 
@@ -35,11 +42,13 @@ static NSString * const reuseIdentifier = @"Cell";
     //Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    //设置导航栏按钮
+    //设置导航栏内容
     [self setupLeftNav];
     [self setupRightNav];
 }
 
+
+#pragma mark 设置导航栏内容
 -(void)setupLeftNav
 {
     //1.LOGO
@@ -47,16 +56,22 @@ static NSString * const reuseIdentifier = @"Cell";
     logo.enabled = NO;
     
     //2.类别
-    HomeTopItem *categoryItem = [HomeTopItem item];
-    UIBarButtonItem *category = [[UIBarButtonItem alloc] initWithCustomView:categoryItem];
+    HomeTopItem *categoryTopItem = [HomeTopItem item];
+    [categoryTopItem addTarget:self action:@selector(categoryClick)];
+    UIBarButtonItem *category = [[UIBarButtonItem alloc] initWithCustomView:categoryTopItem];
+    self.categoryItem = category;
     
     //3.地区
-    HomeTopItem *cityItem = [HomeTopItem item];
-    UIBarButtonItem *city = [[UIBarButtonItem alloc] initWithCustomView:cityItem];
+    HomeTopItem *cityTopItem = [HomeTopItem item];
+    [cityTopItem addTarget:self action:@selector(cityClick)];
+    UIBarButtonItem *city = [[UIBarButtonItem alloc] initWithCustomView:cityTopItem];
+    self.cityItem = city;
     
     //4.排序
-    HomeTopItem *sortItem = [HomeTopItem item];
-    UIBarButtonItem *sort = [[UIBarButtonItem alloc] initWithCustomView:sortItem];
+    HomeTopItem *sortTopItem = [HomeTopItem item];
+    [sortTopItem addTarget:self action:@selector(sortClick)];
+    UIBarButtonItem *sort = [[UIBarButtonItem alloc] initWithCustomView:sortTopItem];
+    self.sortItem = sort;
     
     self.navigationItem.leftBarButtonItems = @[logo,category,city,sort];
     
@@ -64,10 +79,34 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)setupRightNav
 {
-   UIBarButtonItem *search = [UIBarButtonItem itemWithTarget:nil action:nil image:@"icon_search" selectedImage:@"icon_search_highlighted"];
+    UIBarButtonItem *search = [UIBarButtonItem itemWithTarget:nil action:nil image:@"icon_search" selectedImage:@"icon_search_highlighted"];
+    search.customView.width = rightNavWidth;
     
-   UIBarButtonItem *map = [UIBarButtonItem itemWithTarget:nil action:nil image:@"icon_map" selectedImage:@"icon_map_highlighted"];
+    UIBarButtonItem *map = [UIBarButtonItem itemWithTarget:nil action:nil image:@"icon_map" selectedImage:@"icon_map_highlighted"];
+    search.customView.width = rightNavWidth;
     
     self.navigationItem.rightBarButtonItems= @[search,map];
 }
+
+
+#pragma mark 顶部item点击方法
+-(void)categoryClick
+{
+    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:[[CategoryViewController alloc]init]];
+    
+    [popover presentPopoverFromBarButtonItem:self.categoryItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+    self.popover = popover;
+}
+
+-(void)cityClick
+{
+  
+}
+
+-(void)sortClick
+{
+   
+}
+
 @end
