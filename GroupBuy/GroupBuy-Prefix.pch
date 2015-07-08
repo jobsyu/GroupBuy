@@ -12,4 +12,8 @@
 #import "UIView+Extension.h"
 
 #import "UIBarButtonItem+Extension.h"
+#import "UIView+AutoLayout.h"
+
+#define CityDidChangeNotification @"CityDidChangeNotification"
+#define SelectCityName @"SelectCityName"
 

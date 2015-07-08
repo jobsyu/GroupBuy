@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CityViewController">
             <connections>
+                <outlet property="cover" destination="Ktr-0g-5FF" id="uNS-T7-7PN"/>
+                <outlet property="searchBar" destination="KEe-U2-y8c" id="cWo-K2-jOn"/>
                 <outlet property="tableView" destination="mCB-vG-1No" id="d2B-pq-rQV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -33,11 +35,25 @@
                         <outlet property="delegate" destination="-1" id="PvJ-o8-KtY"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ktr-0g-5FF" userLabel="遮盖">
+                    <rect key="frame" x="15" y="50" width="570" height="550"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="coverClick" destination="-1" eventType="touchUpInside" id="1M1-Pd-epq"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="KEe-U2-y8c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="1HM-f8-LGA"/>
+                <constraint firstAttribute="trailing" secondItem="Ktr-0g-5FF" secondAttribute="trailing" id="Aii-I9-Fbb"/>
                 <constraint firstAttribute="trailing" secondItem="KEe-U2-y8c" secondAttribute="trailing" constant="15" id="Gjm-vP-dBp"/>
+                <constraint firstItem="Ktr-0g-5FF" firstAttribute="top" secondItem="KEe-U2-y8c" secondAttribute="bottom" constant="15" id="SFX-Zr-wpc"/>
+                <constraint firstAttribute="bottom" secondItem="Ktr-0g-5FF" secondAttribute="bottom" id="aEn-zQ-jga"/>
+                <constraint firstItem="Ktr-0g-5FF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fOT-my-b4u"/>
                 <constraint firstAttribute="bottom" secondItem="mCB-vG-1No" secondAttribute="bottom" id="kIK-W5-bXv"/>
                 <constraint firstItem="mCB-vG-1No" firstAttribute="top" secondItem="KEe-U2-y8c" secondAttribute="bottom" constant="15" id="m1H-qw-5yH"/>
                 <constraint firstItem="KEe-U2-y8c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="nEC-Rj-Hzy"/>

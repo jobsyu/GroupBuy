@@ -43,11 +43,28 @@ static NSString * const reuseIdentifier = @"Cell";
     //Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
+    //监听通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cityDidChange:) name:CityDidChangeNotification object:nil];
+    
     //设置导航栏内容
     [self setupLeftNav];
     [self setupRightNav];
 }
 
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:nil];
+}
+
+#pragma mark －点击城市通知事件
+-(void)cityDidChange:(NSNotification *)notification
+{
+    NSString *cityName = notification.userInfo[SelectCityName];
+    HomeTopItem *topItem = (HomeTopItem *)self.regionItem.customView;
+    [topItem setTitle:[NSString stringWithFormat:@"%@ - 全部",cityName]];
+    [topItem setSubTitle:nil];
+}
 
 #pragma mark 设置导航栏内容
 -(void)setupLeftNav

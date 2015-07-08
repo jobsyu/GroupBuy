@@ -10,6 +10,8 @@
 
 @interface HomeTopItem()
 @property (weak, nonatomic) IBOutlet UIButton *iconButton;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
 
 @end
 
@@ -31,4 +33,19 @@
     [self.iconButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
 }
 
+-(void)setTitle:(NSString *)title
+{
+    self.titleLabel.text = title;
+}
+
+-(void)setSubTitle:(NSString *)subtitle
+{
+    self.subtitleLabel.text = subtitle;
+}
+
+-(void)setIcon:(NSString *)Icon selectIcon:(NSString *)selectIcon
+{
+    [self.iconButton setImage:[UIImage imageNamed:Icon] forState:UIControlStateNormal];
+    [self.iconButton setImage:[UIImage imageNamed:selectIcon] forState:UIControlStateHighlighted];
+}
 @end

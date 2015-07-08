@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC5CDEC91B4D20A200D43BB5 /* CitySearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */; };
+		BC5CDECE1B4D260000D43BB5 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDECC1B4D260000D43BB5 /* UIView+AutoLayout.m */; };
 		BCDC980F1B4CAB0800B78E6F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDC980E1B4CAB0800B78E6F /* main.m */; };
 		BCDC98121B4CAB0800B78E6F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDC98111B4CAB0800B78E6F /* AppDelegate.m */; };
 		BCDC981A1B4CAB0800B78E6F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCDC98191B4CAB0800B78E6F /* Images.xcassets */; };
@@ -67,6 +69,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC5CDEC71B4D20A200D43BB5 /* CitySearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySearchResultViewController.h; sourceTree = "<group>"; };
+		BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySearchResultViewController.m; sourceTree = "<group>"; };
+		BC5CDECB1B4D260000D43BB5 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		BC5CDECC1B4D260000D43BB5 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 		BCDC98091B4CAB0800B78E6F /* GroupBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCDC980D1B4CAB0800B78E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCDC980E1B4CAB0800B78E6F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -241,6 +247,8 @@
 		BCDC983C1B4CB2F900B78E6F /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				BC5CDECB1B4D260000D43BB5 /* UIView+AutoLayout.h */,
+				BC5CDECC1B4D260000D43BB5 /* UIView+AutoLayout.m */,
 				BCDC98361B4CAD2900B78E6F /* UIView+Extension.h */,
 				BCDC98371B4CAD2900B78E6F /* UIView+Extension.m */,
 				BCDC98391B4CB09B00B78E6F /* UIBarButtonItem+Extension.h */,
@@ -310,6 +318,8 @@
 				BCDC98B21B4CFD5B00B78E6F /* CityViewController.h */,
 				BCDC98B31B4CFD5B00B78E6F /* CityViewController.m */,
 				BCDC98B51B4CFD6800B78E6F /* CityViewController.xib */,
+				BC5CDEC71B4D20A200D43BB5 /* CitySearchResultViewController.h */,
+				BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -537,6 +547,7 @@
 				BCDC98791B4CF50A00B78E6F /* MASLayoutConstraint.m in Sources */,
 				BCDC98761B4CF50A00B78E6F /* MASCompositeConstraint.m in Sources */,
 				BCDC98A01B4CF51000B78E6F /* NSObject+MJKeyValue.m in Sources */,
+				BC5CDEC91B4D20A200D43BB5 /* CitySearchResultViewController.m in Sources */,
 				BCDC98381B4CAD2900B78E6F /* UIView+Extension.m in Sources */,
 				BCDC98AF1B4CFC1D00B78E6F /* RegionViewController.m in Sources */,
 				BCDC98BC1B4D160100B78E6F /* Region.m in Sources */,
@@ -546,6 +557,7 @@
 				BCDC989F1B4CF51000B78E6F /* NSObject+MJCoding.m in Sources */,
 				BCDC989A1B4CF51000B78E6F /* MJIvar.m in Sources */,
 				BCDC98341B4CABDC00B78E6F /* HomeViewController.m in Sources */,
+				BC5CDECE1B4D260000D43BB5 /* UIView+AutoLayout.m in Sources */,
 				BCDC98971B4CF51000B78E6F /* MJArgument.m in Sources */,
 				BCDC987B1B4CF50A00B78E6F /* MASViewConstraint.m in Sources */,
 				BCDC98531B4CCCF800B78E6F /* HomeDropdown.m in Sources */,
@@ -739,6 +751,7 @@
 				BCDC982E1B4CAB0800B78E6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BCDC982F1B4CAB0800B78E6F /* Build configuration list for PBXNativeTarget "GroupBuyTests" */ = {
 			isa = XCConfigurationList;
@@ -747,6 +760,7 @@
 				BCDC98311B4CAB0800B78E6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -20,4 +20,7 @@
  */
 -(void)addTarget:(id)target action:(SEL)action;
 
+-(void)setTitle:(NSString *)title;
+-(void)setSubTitle:(NSString *)subtitle;
+-(void)setIcon:(NSString *)Icon selectIcon:(NSString *)selectIcon;
 @end
