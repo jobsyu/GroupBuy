@@ -47,6 +47,13 @@
 		BCDC98AA1B4CF85900B78E6F /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCDC98A61B4CF85900B78E6F /* cities.plist */; };
 		BCDC98AB1B4CF85900B78E6F /* cityGroups.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCDC98A71B4CF85900B78E6F /* cityGroups.plist */; };
 		BCDC98AC1B4CF85900B78E6F /* sorts.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCDC98A81B4CF85900B78E6F /* sorts.plist */; };
+		BCDC98AF1B4CFC1D00B78E6F /* RegionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDC98AE1B4CFC1D00B78E6F /* RegionViewController.m */; };
+		BCDC98B11B4CFCB000B78E6F /* RegionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCDC98B01B4CFCB000B78E6F /* RegionViewController.xib */; };
+		BCDC98B41B4CFD5B00B78E6F /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDC98B31B4CFD5B00B78E6F /* CityViewController.m */; };
+		BCDC98B61B4CFD6800B78E6F /* CityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCDC98B51B4CFD6800B78E6F /* CityViewController.xib */; };
+		BCDC98B91B4D044A00B78E6F /* CityGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDC98B81B4D044A00B78E6F /* CityGroup.m */; };
+		BCDC98BC1B4D160100B78E6F /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDC98BB1B4D160100B78E6F /* Region.m */; };
+		BCDC98BF1B4D166800B78E6F /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDC98BE1B4D166800B78E6F /* City.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +149,18 @@
 		BCDC98A61B4CF85900B78E6F /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
 		BCDC98A71B4CF85900B78E6F /* cityGroups.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityGroups.plist; sourceTree = "<group>"; };
 		BCDC98A81B4CF85900B78E6F /* sorts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sorts.plist; sourceTree = "<group>"; };
+		BCDC98AD1B4CFC1D00B78E6F /* RegionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionViewController.h; sourceTree = "<group>"; };
+		BCDC98AE1B4CFC1D00B78E6F /* RegionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionViewController.m; sourceTree = "<group>"; };
+		BCDC98B01B4CFCB000B78E6F /* RegionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegionViewController.xib; sourceTree = "<group>"; };
+		BCDC98B21B4CFD5B00B78E6F /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
+		BCDC98B31B4CFD5B00B78E6F /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
+		BCDC98B51B4CFD6800B78E6F /* CityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityViewController.xib; sourceTree = "<group>"; };
+		BCDC98B71B4D044A00B78E6F /* CityGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityGroup.h; sourceTree = "<group>"; };
+		BCDC98B81B4D044A00B78E6F /* CityGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityGroup.m; sourceTree = "<group>"; };
+		BCDC98BA1B4D160100B78E6F /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
+		BCDC98BB1B4D160100B78E6F /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
+		BCDC98BD1B4D166800B78E6F /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		BCDC98BE1B4D166800B78E6F /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +304,12 @@
 				BCDC98331B4CABDC00B78E6F /* HomeViewController.m */,
 				BCDC984C1B4CCACE00B78E6F /* CategoryViewController.h */,
 				BCDC984D1B4CCACE00B78E6F /* CategoryViewController.m */,
+				BCDC98AD1B4CFC1D00B78E6F /* RegionViewController.h */,
+				BCDC98AE1B4CFC1D00B78E6F /* RegionViewController.m */,
+				BCDC98B01B4CFCB000B78E6F /* RegionViewController.xib */,
+				BCDC98B21B4CFD5B00B78E6F /* CityViewController.h */,
+				BCDC98B31B4CFD5B00B78E6F /* CityViewController.m */,
+				BCDC98B51B4CFD6800B78E6F /* CityViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -311,6 +336,12 @@
 			children = (
 				BCDC98551B4CCE1300B78E6F /* Categorys.h */,
 				BCDC98561B4CCE1300B78E6F /* Categorys.m */,
+				BCDC98B71B4D044A00B78E6F /* CityGroup.h */,
+				BCDC98B81B4D044A00B78E6F /* CityGroup.m */,
+				BCDC98BA1B4D160100B78E6F /* Region.h */,
+				BCDC98BB1B4D160100B78E6F /* Region.m */,
+				BCDC98BD1B4D166800B78E6F /* City.h */,
+				BCDC98BE1B4D166800B78E6F /* City.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -466,9 +497,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCDC98B61B4CFD6800B78E6F /* CityViewController.xib in Resources */,
 				BCDC98A91B4CF85900B78E6F /* categories.plist in Resources */,
 				BCDC983E1B4CB31C00B78E6F /* HomeTopItem.xib in Resources */,
 				BCDC98AC1B4CF85900B78E6F /* sorts.plist in Resources */,
+				BCDC98B11B4CFCB000B78E6F /* RegionViewController.xib in Resources */,
 				BCDC981A1B4CAB0800B78E6F /* Images.xcassets in Resources */,
 				BCDC98AA1B4CF85900B78E6F /* cities.plist in Resources */,
 				BCDC98501B4CCC9700B78E6F /* HomeDropdown.xib in Resources */,
@@ -497,6 +530,7 @@
 				BCDC984E1B4CCACE00B78E6F /* CategoryViewController.m in Sources */,
 				BCDC989D1B4CF51000B78E6F /* MJType.m in Sources */,
 				BCDC987D1B4CF50A00B78E6F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				BCDC98BF1B4D166800B78E6F /* City.m in Sources */,
 				BCDC98121B4CAB0800B78E6F /* AppDelegate.m in Sources */,
 				BCDC980F1B4CAB0800B78E6F /* main.m in Sources */,
 				BCDC987A1B4CF50A00B78E6F /* MASViewAttribute.m in Sources */,
@@ -504,8 +538,11 @@
 				BCDC98761B4CF50A00B78E6F /* MASCompositeConstraint.m in Sources */,
 				BCDC98A01B4CF51000B78E6F /* NSObject+MJKeyValue.m in Sources */,
 				BCDC98381B4CAD2900B78E6F /* UIView+Extension.m in Sources */,
+				BCDC98AF1B4CFC1D00B78E6F /* RegionViewController.m in Sources */,
+				BCDC98BC1B4D160100B78E6F /* Region.m in Sources */,
 				BCDC989C1B4CF51000B78E6F /* MJMethod.m in Sources */,
 				BCDC989E1B4CF51000B78E6F /* MJTypeEncoding.m in Sources */,
+				BCDC98B91B4D044A00B78E6F /* CityGroup.m in Sources */,
 				BCDC989F1B4CF51000B78E6F /* NSObject+MJCoding.m in Sources */,
 				BCDC989A1B4CF51000B78E6F /* MJIvar.m in Sources */,
 				BCDC98341B4CABDC00B78E6F /* HomeViewController.m in Sources */,
@@ -516,6 +553,7 @@
 				BCDC98991B4CF51000B78E6F /* MJFoundation.m in Sources */,
 				BCDC983B1B4CB09B00B78E6F /* UIBarButtonItem+Extension.m in Sources */,
 				BCDC98571B4CCE1300B78E6F /* Categorys.m in Sources */,
+				BCDC98B41B4CFD5B00B78E6F /* CityViewController.m in Sources */,
 				BCDC98411B4CB34700B78E6F /* HomeTopItem.m in Sources */,
 				BCDC98781B4CF50A00B78E6F /* MASConstraintMaker.m in Sources */,
 				BCDC985A1B4CD29100B78E6F /* HomeDropdownMainCell.m in Sources */,

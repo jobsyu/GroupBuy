@@ -25,11 +25,7 @@
     return [[[NSBundle mainBundle] loadNibNamed:@"HomeDropdown" owner:nil options:nil] firstObject];
 }
 
--(void)awakeFromNib
-{
-    //不需要随父控件的尺寸变化而伸缩
-    self.autoresizingMask = UIViewAutoresizingNone;
-}
+
 
 #pragma mark - UITableViewDataSource 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -23,7 +23,7 @@
 +(UIBarButtonItem *)itemWithTarget:(id)target action:(SEL)action image:(NSString *)image selectedImage:(NSString *)selectedImage
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
     [button setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:selectedImage] forState:UIControlStateSelected];

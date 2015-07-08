@@ -11,10 +11,11 @@
 #import "HomeViewController.h"
 #import "HomeTopItem.h"
 #import "CategoryViewController.h"
+#import "RegionViewController.h"
 
 @interface HomeViewController()
 @property (nonatomic,weak) UIBarButtonItem *categoryItem;
-@property (nonatomic,weak) UIBarButtonItem *cityItem;
+@property (nonatomic,weak) UIBarButtonItem *regionItem;
 @property (nonatomic,weak) UIBarButtonItem *sortItem;
 
 @property (nonatomic,strong) UIPopoverController *popover;
@@ -62,10 +63,10 @@ static NSString * const reuseIdentifier = @"Cell";
     self.categoryItem = category;
     
     //3.地区
-    HomeTopItem *cityTopItem = [HomeTopItem item];
-    [cityTopItem addTarget:self action:@selector(cityClick)];
-    UIBarButtonItem *city = [[UIBarButtonItem alloc] initWithCustomView:cityTopItem];
-    self.cityItem = city;
+    HomeTopItem *regionTopItem = [HomeTopItem item];
+    [regionTopItem addTarget:self action:@selector(regionClick)];
+    UIBarButtonItem *region = [[UIBarButtonItem alloc] initWithCustomView:regionTopItem];
+    self.regionItem = region;
     
     //4.排序
     HomeTopItem *sortTopItem = [HomeTopItem item];
@@ -73,35 +74,37 @@ static NSString * const reuseIdentifier = @"Cell";
     UIBarButtonItem *sort = [[UIBarButtonItem alloc] initWithCustomView:sortTopItem];
     self.sortItem = sort;
     
-    self.navigationItem.leftBarButtonItems = @[logo,category,city,sort];
+    self.navigationItem.leftBarButtonItems = @[logo,category,region,sort];
     
 }
 
 -(void)setupRightNav
 {
-    UIBarButtonItem *search = [UIBarButtonItem itemWithTarget:nil action:nil image:@"icon_search" selectedImage:@"icon_search_highlighted"];
-    search.customView.width = rightNavWidth;
+    UIBarButtonItem *searchItem = [UIBarButtonItem itemWithTarget:nil action:nil image:@"icon_search" selectedImage:@"icon_search_highlighted"];
+    searchItem.customView.width = rightNavWidth;
     
-    UIBarButtonItem *map = [UIBarButtonItem itemWithTarget:nil action:nil image:@"icon_map" selectedImage:@"icon_map_highlighted"];
-    search.customView.width = rightNavWidth;
+    UIBarButtonItem *mapItem = [UIBarButtonItem itemWithTarget:nil action:nil image:@"icon_map" selectedImage:@"icon_map_highlighted"];
+    searchItem.customView.width = rightNavWidth;
     
-    self.navigationItem.rightBarButtonItems= @[search,map];
+    self.navigationItem.rightBarButtonItems= @[searchItem,mapItem];
 }
 
 
 #pragma mark 顶部item点击方法
 -(void)categoryClick
 {
-    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:[[CategoryViewController alloc]init]];
+    UIPopoverController *categoryPopover = [[UIPopoverController alloc] initWithContentViewController:[[CategoryViewController alloc]init]];
     
-    [popover presentPopoverFromBarButtonItem:self.categoryItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [categoryPopover presentPopoverFromBarButtonItem:self.categoryItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     
-    self.popover = popover;
+    //self.popover = popover;
 }
 
--(void)cityClick
+-(void)regionClick
 {
-  
+    UIPopoverController *regionPopover = [[UIPopoverController alloc] initWithContentViewController:[[RegionViewController alloc] init]];
+    
+    [regionPopover presentPopoverFromBarButtonItem:self.regionItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 -(void)sortClick
