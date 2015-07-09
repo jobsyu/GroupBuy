@@ -10,4 +10,20 @@
 
 @implementation CollectViewController
 
+static NSString *const reuseIdentifier =@"cell";
+
+-(instancetype)init
+{
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.itemSize =CGSizeMake(305, 305);
+    return [self initWithCollectionViewLayout:layout];
+}
+
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+}
+
+
 @end

@@ -25,6 +25,7 @@
 #import "AwesomeMenu.h"
 #import "RecentViewController.h"
 #import "CollectViewController.h"
+#import "MBProgressHUD+MJ.h"
 
 
 @interface HomeViewController()<AwesomeMenuDelegate>
@@ -279,8 +280,15 @@
 
 -(void)search
 {
-    NavigationController *nav = [[NavigationController alloc] initWithRootViewController:[[SearchViewController alloc] init]];
-    [self presentViewController:nav animated:YES completion:nil];
+    if (self.selectedCityName) {
+        SearchViewController *searchVc = [[SearchViewController alloc] init];
+        searchVc.cityName = self.selectedCityName;
+        NavigationController *nav = [[NavigationController alloc] initWithRootViewController:searchVc];
+        [self presentViewController:nav animated:YES completion:nil];
+    } else {
+        [MBProgressHUD showError:@"请选择城市后再搜索" toView:self.view];
+    }
+    
 }
 
 -(void)categoryClick

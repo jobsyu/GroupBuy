@@ -47,6 +47,8 @@
 		BC1547F01B4E739C0013C0DD /* AwesomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547EE1B4E739C0013C0DD /* AwesomeMenuItem.m */; };
 		BC1547F71B4E79610013C0DD /* CollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547F61B4E79610013C0DD /* CollectViewController.m */; };
 		BC1547FA1B4E79870013C0DD /* RecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547F91B4E79870013C0DD /* RecentViewController.m */; };
+		BC1547FF1B4E8B190013C0DD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547FE1B4E8B190013C0DD /* DetailViewController.m */; };
+		BC1548011B4E8B5F0013C0DD /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1548001B4E8B5F0013C0DD /* DetailViewController.xib */; };
 		BC5CDEC91B4D20A200D43BB5 /* CitySearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */; };
 		BC5CDECE1B4D260000D43BB5 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDECC1B4D260000D43BB5 /* UIView+AutoLayout.m */; };
 		BC5CDED21B4D428600D43BB5 /* MetaTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDED11B4D428600D43BB5 /* MetaTool.m */; };
@@ -191,6 +193,9 @@
 		BC1547F61B4E79610013C0DD /* CollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectViewController.m; sourceTree = "<group>"; };
 		BC1547F81B4E79870013C0DD /* RecentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentViewController.h; sourceTree = "<group>"; };
 		BC1547F91B4E79870013C0DD /* RecentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentViewController.m; sourceTree = "<group>"; };
+		BC1547FD1B4E8B190013C0DD /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		BC1547FE1B4E8B190013C0DD /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		BC1548001B4E8B5F0013C0DD /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		BC5CDEC71B4D20A200D43BB5 /* CitySearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySearchResultViewController.h; sourceTree = "<group>"; };
 		BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySearchResultViewController.m; sourceTree = "<group>"; };
 		BC5CDECB1B4D260000D43BB5 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
@@ -462,6 +467,24 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		BC1547FB1B4E8AD70013C0DD /* Detail(详情) */ = {
+			isa = PBXGroup;
+			children = (
+				BC1547FC1B4E8AE90013C0DD /* Controller */,
+			);
+			name = "Detail(详情)";
+			sourceTree = "<group>";
+		};
+		BC1547FC1B4E8AE90013C0DD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC1547FD1B4E8B190013C0DD /* DetailViewController.h */,
+				BC1547FE1B4E8B190013C0DD /* DetailViewController.m */,
+				BC1548001B4E8B5F0013C0DD /* DetailViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		BC5CDECF1B4D425500D43BB5 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +515,7 @@
 		BCDC980B1B4CAB0800B78E6F /* GroupBuy */ = {
 			isa = PBXGroup;
 			children = (
+				BC1547FB1B4E8AD70013C0DD /* Detail(详情) */,
 				BC1547F31B4E78F70013C0DD /* Collect(收藏) */,
 				BC1547F11B4E78D40013C0DD /* Recent(最近) */,
 				BC1547E51B4E6C0A0013C0DD /* Search(搜索) */,
@@ -817,6 +841,7 @@
 				BCDC98A91B4CF85900B78E6F /* categories.plist in Resources */,
 				BCDC983E1B4CB31C00B78E6F /* HomeTopItem.xib in Resources */,
 				BCDC98AC1B4CF85900B78E6F /* sorts.plist in Resources */,
+				BC1548011B4E8B5F0013C0DD /* DetailViewController.xib in Resources */,
 				BCDC98B11B4CFCB000B78E6F /* RegionViewController.xib in Resources */,
 				BC1547E31B4E68550013C0DD /* MBProgressHUD.bundle in Resources */,
 				BCDC981A1B4CAB0800B78E6F /* Images.xcassets in Resources */,
@@ -856,6 +881,7 @@
 				BC1547B11B4E4A9C0013C0DD /* SDWebImageDecoder.m in Sources */,
 				BC1547B01B4E4A9C0013C0DD /* SDWebImageCompat.m in Sources */,
 				BC1547EF1B4E739C0013C0DD /* AwesomeMenu.m in Sources */,
+				BC1547FF1B4E8B190013C0DD /* DetailViewController.m in Sources */,
 				BCDC987D1B4CF50A00B78E6F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				BCDC98BF1B4D166800B78E6F /* City.m in Sources */,
 				BC1547E91B4E6C5A0013C0DD /* SearchViewController.m in Sources */,

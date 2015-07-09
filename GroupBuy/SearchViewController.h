@@ -9,5 +9,5 @@
 #import "DealsViewController.h"
 
 @interface SearchViewController : DealsViewController
-
+@property (nonatomic,copy) NSString *cityName;
 @end

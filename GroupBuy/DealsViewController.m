@@ -13,6 +13,8 @@
 #import "MJExtension.h"
 #import "DealCell.h"
 #import "MBProgressHUD+MJ.h"
+#import "DetailViewController.h"
+//#import "NavigationController.h"
 
 @interface DealsViewController() <DPRequestDelegate>
 /** 所有的团购数据 */
@@ -179,4 +181,11 @@ static NSString * const reuseIdentifier = @"deal";
 }
 
 #pragma mark UICollectionViewDelegate 方法
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailViewController *detailVc = [[DetailViewController alloc] init];
+    detailVc.deal = self.deals[indexPath.item];
+    //NavigationController *nav = [[NavigationController alloc] initWithRootViewController:detailVc];
+    [self presentViewController:detailVc animated:YES completion:nil];
+}
 @end
