@@ -43,6 +43,10 @@
 		BC1547E31B4E68550013C0DD /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC1547DF1B4E68550013C0DD /* MBProgressHUD.bundle */; };
 		BC1547E41B4E68550013C0DD /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547E11B4E68550013C0DD /* MBProgressHUD.m */; };
 		BC1547E91B4E6C5A0013C0DD /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547E81B4E6C5A0013C0DD /* SearchViewController.m */; };
+		BC1547EF1B4E739C0013C0DD /* AwesomeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547EC1B4E739C0013C0DD /* AwesomeMenu.m */; };
+		BC1547F01B4E739C0013C0DD /* AwesomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547EE1B4E739C0013C0DD /* AwesomeMenuItem.m */; };
+		BC1547F71B4E79610013C0DD /* CollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547F61B4E79610013C0DD /* CollectViewController.m */; };
+		BC1547FA1B4E79870013C0DD /* RecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547F91B4E79870013C0DD /* RecentViewController.m */; };
 		BC5CDEC91B4D20A200D43BB5 /* CitySearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */; };
 		BC5CDECE1B4D260000D43BB5 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDECC1B4D260000D43BB5 /* UIView+AutoLayout.m */; };
 		BC5CDED21B4D428600D43BB5 /* MetaTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDED11B4D428600D43BB5 /* MetaTool.m */; };
@@ -179,6 +183,14 @@
 		BC1547E11B4E68550013C0DD /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		BC1547E71B4E6C5A0013C0DD /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		BC1547E81B4E6C5A0013C0DD /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		BC1547EB1B4E739C0013C0DD /* AwesomeMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeMenu.h; sourceTree = "<group>"; };
+		BC1547EC1B4E739C0013C0DD /* AwesomeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenu.m; sourceTree = "<group>"; };
+		BC1547ED1B4E739C0013C0DD /* AwesomeMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeMenuItem.h; sourceTree = "<group>"; };
+		BC1547EE1B4E739C0013C0DD /* AwesomeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenuItem.m; sourceTree = "<group>"; };
+		BC1547F51B4E79610013C0DD /* CollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectViewController.h; sourceTree = "<group>"; };
+		BC1547F61B4E79610013C0DD /* CollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectViewController.m; sourceTree = "<group>"; };
+		BC1547F81B4E79870013C0DD /* RecentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentViewController.h; sourceTree = "<group>"; };
+		BC1547F91B4E79870013C0DD /* RecentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentViewController.m; sourceTree = "<group>"; };
 		BC5CDEC71B4D20A200D43BB5 /* CitySearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySearchResultViewController.h; sourceTree = "<group>"; };
 		BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySearchResultViewController.m; sourceTree = "<group>"; };
 		BC5CDECB1B4D260000D43BB5 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
@@ -405,6 +417,51 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		BC1547EA1B4E739C0013C0DD /* AwesomeMenu */ = {
+			isa = PBXGroup;
+			children = (
+				BC1547EB1B4E739C0013C0DD /* AwesomeMenu.h */,
+				BC1547EC1B4E739C0013C0DD /* AwesomeMenu.m */,
+				BC1547ED1B4E739C0013C0DD /* AwesomeMenuItem.h */,
+				BC1547EE1B4E739C0013C0DD /* AwesomeMenuItem.m */,
+			);
+			path = AwesomeMenu;
+			sourceTree = "<group>";
+		};
+		BC1547F11B4E78D40013C0DD /* Recent(最近) */ = {
+			isa = PBXGroup;
+			children = (
+				BC1547F21B4E78E50013C0DD /* Controller */,
+			);
+			name = "Recent(最近)";
+			sourceTree = "<group>";
+		};
+		BC1547F21B4E78E50013C0DD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC1547F81B4E79870013C0DD /* RecentViewController.h */,
+				BC1547F91B4E79870013C0DD /* RecentViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		BC1547F31B4E78F70013C0DD /* Collect(收藏) */ = {
+			isa = PBXGroup;
+			children = (
+				BC1547F41B4E790D0013C0DD /* Controller */,
+			);
+			name = "Collect(收藏)";
+			sourceTree = "<group>";
+		};
+		BC1547F41B4E790D0013C0DD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC1547F51B4E79610013C0DD /* CollectViewController.h */,
+				BC1547F61B4E79610013C0DD /* CollectViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		BC5CDECF1B4D425500D43BB5 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +492,8 @@
 		BCDC980B1B4CAB0800B78E6F /* GroupBuy */ = {
 			isa = PBXGroup;
 			children = (
+				BC1547F31B4E78F70013C0DD /* Collect(收藏) */,
+				BC1547F11B4E78D40013C0DD /* Recent(最近) */,
 				BC1547E51B4E6C0A0013C0DD /* Search(搜索) */,
 				BCDC98461B4CBF7E00B78E6F /* Home(首页) */,
 				BCDC98451B4CBF7000B78E6F /* Main(主要) */,
@@ -530,6 +589,7 @@
 		BCDC98491B4CBFC300B78E6F /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				BC1547EA1B4E739C0013C0DD /* AwesomeMenu */,
 				BC1547DC1B4E68550013C0DD /* MBProgressHUD */,
 				BC1547C01B4E61F30013C0DD /* MJRefresh */,
 				BC15478B1B4E4A9C0013C0DD /* SDWebImage */,
@@ -791,9 +851,11 @@
 				BCDC984E1B4CCACE00B78E6F /* CategoryViewController.m in Sources */,
 				BC1547B81B4E4A9C0013C0DD /* UIImage+MultiFormat.m in Sources */,
 				BCDC989D1B4CF51000B78E6F /* MJType.m in Sources */,
+				BC1547F01B4E739C0013C0DD /* AwesomeMenuItem.m in Sources */,
 				BC1547B91B4E4A9C0013C0DD /* UIImage+WebP.m in Sources */,
 				BC1547B11B4E4A9C0013C0DD /* SDWebImageDecoder.m in Sources */,
 				BC1547B01B4E4A9C0013C0DD /* SDWebImageCompat.m in Sources */,
+				BC1547EF1B4E739C0013C0DD /* AwesomeMenu.m in Sources */,
 				BCDC987D1B4CF50A00B78E6F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				BCDC98BF1B4D166800B78E6F /* City.m in Sources */,
 				BC1547E91B4E6C5A0013C0DD /* SearchViewController.m in Sources */,
@@ -851,9 +913,11 @@
 				BCDC98781B4CF50A00B78E6F /* MASConstraintMaker.m in Sources */,
 				BC1547AD1B4E4A9C0013C0DD /* MKAnnotationView+WebCache.m in Sources */,
 				BCDC985A1B4CD29100B78E6F /* HomeDropdownMainCell.m in Sources */,
+				BC1547FA1B4E79870013C0DD /* RecentViewController.m in Sources */,
 				BCDC98771B4CF50A00B78E6F /* MASConstraint.m in Sources */,
 				BC1547B71B4E4A9C0013C0DD /* UIImage+GIF.m in Sources */,
 				BC1547E41B4E68550013C0DD /* MBProgressHUD.m in Sources */,
+				BC1547F71B4E79610013C0DD /* CollectViewController.m in Sources */,
 				BCDC98441B4CB3B800B78E6F /* NavigationController.m in Sources */,
 				BCDC987E1B4CF50A00B78E6F /* View+MASAdditions.m in Sources */,
 			);
