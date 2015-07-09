@@ -19,9 +19,12 @@
 #import "Categorys.h"
 #import "Region.h"
 #import "DPAPI.h"
+#import "DealCell.h"
+#import "Deal.h"
+#import "MJExtension.h"
 
 
-@interface HomeViewController()<DPRequestDelegate>
+@interface HomeViewController()<DPRequestDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic,weak) UIBarButtonItem *categoryItem;
 @property (nonatomic,weak) UIBarButtonItem *regionItem;
 @property (nonatomic,weak) UIBarButtonItem *sortItem;
@@ -34,17 +37,29 @@
 @property (nonatomic,copy) NSString *selectedRegionName;
 @property (nonatomic,copy) NSString *selectedCategoryName;
 @property (nonatomic,strong) Sort *selectedSort;
+
+@property (nonatomic,strong) NSMutableArray *deals;
 @end
 
 @implementation HomeViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const reuseIdentifier = @"deal";
 
 
 -(instancetype)init
 {
-    UICollectionViewLayout *layout = [[UICollectionViewLayout alloc] init];
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    //cell的大小
+    layout.itemSize = CGSizeMake(305, 305);
     return [self initWithCollectionViewLayout:layout];
+}
+
+-(NSMutableArray *)deals
+{
+    if (!_deals) {
+        self.deals = [[NSMutableArray alloc] init];
+    }
+    return _deals;
 }
 
 
@@ -55,7 +70,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.collectionView.backgroundColor = GBGlobalBg;
     
     //Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"DealCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     
     //监听通知
     [MTNotificationCenter addObserver:self selector:@selector(cityDidChange:) name:CityDidChangeNotification object:nil];
@@ -156,7 +171,6 @@ static NSString * const reuseIdentifier = @"Cell";
     }
     //区域
     if (self.selectedRegionName) {
-        
         params[@"region"] = self.selectedRegionName;
     }
     //排序
@@ -171,6 +185,12 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
 {
     GBLog(@"请求成功--%@",result);
+    //1.取出团购的字典数组
+    NSArray *newDeals = [Deal objectArrayWithKeyValuesArray:result[@"deals"]];
+    [self.deals removeAllObjects];
+    [self.deals addObjectsFromArray:newDeals];
+    
+    [self.collectionView reloadData];
 }
 
 -(void)request:(DPRequest *)request didFailWithError:(NSError *)error
@@ -249,4 +269,25 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.sortPopover presentPopoverFromBarButtonItem:self.sortItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
+#pragma mark UICollectionView 数据源
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.deals.count;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    DealCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    cell.deal = self.deals[indexPath.item];
+    
+    return cell;
+}
+
+#pragma mark UICollectionViewDelegate 方法
 @end
