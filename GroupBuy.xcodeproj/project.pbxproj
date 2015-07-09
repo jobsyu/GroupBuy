@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BC15477A1B4E039D0013C0DD /* SortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547791B4E039D0013C0DD /* SortViewController.m */; };
+		BC1547811B4E261C0013C0DD /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BC15477D1B4E261C0013C0DD /* DPAPI.m */; };
+		BC1547821B4E261C0013C0DD /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547801B4E261C0013C0DD /* DPRequest.m */; };
 		BC5CDEC91B4D20A200D43BB5 /* CitySearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */; };
 		BC5CDECE1B4D260000D43BB5 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDECC1B4D260000D43BB5 /* UIView+AutoLayout.m */; };
 		BC5CDED21B4D428600D43BB5 /* MetaTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDED11B4D428600D43BB5 /* MetaTool.m */; };
@@ -74,6 +76,11 @@
 /* Begin PBXFileReference section */
 		BC1547781B4E039D0013C0DD /* SortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortViewController.h; sourceTree = "<group>"; };
 		BC1547791B4E039D0013C0DD /* SortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortViewController.m; sourceTree = "<group>"; };
+		BC15477C1B4E261C0013C0DD /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
+		BC15477D1B4E261C0013C0DD /* DPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAPI.m; sourceTree = "<group>"; };
+		BC15477E1B4E261C0013C0DD /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
+		BC15477F1B4E261C0013C0DD /* DPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRequest.h; sourceTree = "<group>"; };
+		BC1547801B4E261C0013C0DD /* DPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRequest.m; sourceTree = "<group>"; };
 		BC5CDEC71B4D20A200D43BB5 /* CitySearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySearchResultViewController.h; sourceTree = "<group>"; };
 		BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySearchResultViewController.m; sourceTree = "<group>"; };
 		BC5CDECB1B4D260000D43BB5 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
@@ -196,6 +203,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC15477B1B4E261C0013C0DD /* dianpingapi */ = {
+			isa = PBXGroup;
+			children = (
+				BC15477C1B4E261C0013C0DD /* DPAPI.h */,
+				BC15477D1B4E261C0013C0DD /* DPAPI.m */,
+				BC15477E1B4E261C0013C0DD /* DPConstants.h */,
+				BC15477F1B4E261C0013C0DD /* DPRequest.h */,
+				BC1547801B4E261C0013C0DD /* DPRequest.m */,
+			);
+			path = dianpingapi;
+			sourceTree = "<group>";
+		};
 		BC5CDECF1B4D425500D43BB5 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +337,7 @@
 		BCDC98491B4CBFC300B78E6F /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				BC15477B1B4E261C0013C0DD /* dianpingapi */,
 				BCDC987F1B4CF51000B78E6F /* MJExtension */,
 				BCDC985E1B4CF50A00B78E6F /* Masonry */,
 			);
@@ -348,12 +368,12 @@
 		BCDC984B1B4CBFF600B78E6F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BCDC984F1B4CCC9700B78E6F /* HomeDropdown.xib */,
 				BCDC98511B4CCCF800B78E6F /* HomeDropdown.h */,
 				BCDC98521B4CCCF800B78E6F /* HomeDropdown.m */,
-				BCDC983D1B4CB31C00B78E6F /* HomeTopItem.xib */,
+				BCDC984F1B4CCC9700B78E6F /* HomeDropdown.xib */,
 				BCDC983F1B4CB34700B78E6F /* HomeTopItem.h */,
 				BCDC98401B4CB34700B78E6F /* HomeTopItem.m */,
+				BCDC983D1B4CB31C00B78E6F /* HomeTopItem.xib */,
 				BCDC98581B4CD29100B78E6F /* HomeDropdownMainCell.h */,
 				BCDC98591B4CD29100B78E6F /* HomeDropdownMainCell.m */,
 				BCDC985B1B4CD2B600B78E6F /* HomeDropdownSubCell.h */,
@@ -556,6 +576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC1547811B4E261C0013C0DD /* DPAPI.m in Sources */,
 				BCDC98A11B4CF51000B78E6F /* NSObject+MJMember.m in Sources */,
 				BCDC989B1B4CF51000B78E6F /* MJMember.m in Sources */,
 				BCDC985D1B4CD2B600B78E6F /* HomeDropdownSubCell.m in Sources */,
@@ -578,6 +599,7 @@
 				BC5CDED21B4D428600D43BB5 /* MetaTool.m in Sources */,
 				BCDC989C1B4CF51000B78E6F /* MJMethod.m in Sources */,
 				BCDC989E1B4CF51000B78E6F /* MJTypeEncoding.m in Sources */,
+				BC1547821B4E261C0013C0DD /* DPRequest.m in Sources */,
 				BCDC98B91B4D044A00B78E6F /* CityGroup.m in Sources */,
 				BCDC989F1B4CF51000B78E6F /* NSObject+MJCoding.m in Sources */,
 				BC5CDED51B4D4E2300D43BB5 /* Sort.m in Sources */,

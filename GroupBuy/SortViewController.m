@@ -10,6 +10,35 @@
 #import "MetaTool.h"
 #import "Sort.h"
 
+@interface SortButton : UIButton
+@property (nonatomic,strong) Sort *sort;
+@end
+
+@implementation SortButton
+-(instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        [self setBackgroundImage:[UIImage imageNamed:@"btn_filter_normal"] forState:UIControlStateNormal];
+        [self setBackgroundImage:[UIImage imageNamed:@"btn_filter_selected"] forState:UIControlStateHighlighted];
+    }
+    return self;
+}
+
+-(void)setSort:(Sort *)sort
+{
+    _sort  = sort;
+    
+    [self setTitle:sort.label forState:UIControlStateNormal];
+}
+
+@end
+
+@interface SortViewController()
+
+@end
+
 @implementation SortViewController
 
 -(void)viewDidLoad{
@@ -24,18 +53,12 @@
     CGFloat btnMargin = 15;
     CGFloat height = 0;
     for (NSUInteger i = 0; i<count; i++) {
-        Sort *sort = sorts[i];
-        
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        SortButton *button = [[SortButton alloc] init];
+        button.sort = sorts[i];
         button.width = btnW;
         button.height = btnH;
         button.x = btnX;
         button.y = btnStartY + i *(btnH + btnMargin);
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-        [button setTitle:sort.label forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageNamed:@"btn_filter_normal"] forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageNamed:@"btn_filter_selected"] forState:UIControlStateHighlighted];
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         button.tag = i;
         [self.view  addSubview:button];
@@ -51,10 +74,10 @@
     
 }
 
--(void)buttonClick:(UIButton *)button
+-(void)buttonClick:(SortButton *)button
 {
     [MTNotificationCenter postNotificationName:SortDidChangeNotification object:nil userInfo:
-     @{SelectSort :[MetaTool sorts][button.tag]}];
+     @{SelectSort : button.sort}];
 }
 
 

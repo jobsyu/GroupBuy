@@ -36,12 +36,16 @@
 - (NSString *)homeDropdown:(HomeDropdown *)homeDropdown selectedIconForRowInMainTable:(NSInteger)row;
 @end
 
+@protocol HomeDropdownDelegate <NSObject>
+
+@optional
+-(void)homeDropdown:(HomeDropdown *)homeDropdown didSelectRowInMainTable:(NSInteger)row;
+-(void)homeDropdown:(HomeDropdown *)homeDropdown didSelectRowInSubTable:(NSInteger)subRow inMainTable:(NSInteger)mainRow;
+@end
+
 @interface HomeDropdown : UIView
 
 +(instancetype)dropdown;
-
-//@property (nonatomic,strong) NSArray *categories;
-//@property (nonatomic,strong) NSArray *regions;
+@property (nonatomic,weak) id<HomeDropdownDelegate> delegate;
 @property (nonatomic,weak) id<HomeDropdownDataSource> dataSource;
-
 @end

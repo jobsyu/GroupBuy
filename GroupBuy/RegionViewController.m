@@ -12,7 +12,7 @@
 #import "NavigationController.h"
 #import "Region.h"
 
-@interface RegionViewController()<HomeDropdownDataSource>
+@interface RegionViewController()<HomeDropdownDataSource,HomeDropdownDelegate>
 -(IBAction)changeCity;
 @end
 @implementation RegionViewController
@@ -25,6 +25,7 @@
     HomeDropdown *dropDown = [HomeDropdown dropdown];
     dropDown.y = title.height;
     dropDown.dataSource = self;
+    dropDown.delegate =self;
     [self.view addSubview:dropDown];
     
     //设置尺寸
@@ -33,10 +34,12 @@
 }
 
 -(IBAction)changeCity{
+    [self.popover dismissPopoverAnimated:YES];
+    
     CityViewController *cityVc = [[CityViewController alloc] init];
     NavigationController *nav = [[NavigationController alloc] initWithRootViewController:cityVc];
     nav.modalPresentationStyle = UIModalPresentationFormSheet;
-    [self presentViewController:nav animated:YES completion:nil];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
 }
 
 #pragma mark - HomeDropdownDataSource
@@ -55,6 +58,23 @@
 {
     Region *region = self.regions[row];
     return region.subregions;
+}
+
+-(void)homeDropdown:(HomeDropdown *)homeDropdown didSelectRowInMainTable:(NSInteger)row
+{
+    Region *region = self.regions[row];
+    if (region.subregions.count == 0) {
+        [MTNotificationCenter postNotificationName:RegionDidChangeNotification object:nil userInfo:
+         @{SelectRegion : region}];
+    }
+}
+
+-(void)homeDropdown:(HomeDropdown *)homeDropdown didSelectRowInSubTable:(NSInteger)subRow inMainTable:(NSInteger)mainRow
+{
+    Region *region = self.regions[mainRow];
+    
+    [MTNotificationCenter postNotificationName:RegionDidChangeNotification object:nil userInfo:
+     @{SelectRegion : region , SelectSubRegionName : region.subregions[subRow]}];
 }
 
 @end

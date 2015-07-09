@@ -12,7 +12,7 @@
 #import "Categorys.h"
 #import "MetaTool.h"
 
-@interface CategoryViewController()<HomeDropdownDataSource>
+@interface CategoryViewController()<HomeDropdownDataSource,HomeDropdownDelegate>
 
 @end
 
@@ -25,6 +25,7 @@
     //加载分类数据
     //dropDown.categories = [Categorys objectArrayWithFilename:@"categories.plist"];
     dropDown.dataSource =self;
+    dropDown.delegate =self;
     self.view =dropDown;
     
     //设置控制器view在popover中的尺寸
@@ -59,5 +60,22 @@
 {
     Categorys *category = [MetaTool categories][row];
     return category.small_highlighted_icon;
+}
+
+-(void)homeDropdown:(HomeDropdown *)homeDropdown didSelectRowInMainTable:(NSInteger)row
+{
+    Categorys *category = [MetaTool categories][row];
+    if(category.subcategories.count == 0)
+    {
+        [MTNotificationCenter postNotificationName:CategoryDidChangeNotification object:nil userInfo:
+         @{SelectCategory : category}];
+    }
+}
+
+-(void)homeDropdown:(HomeDropdown *)homeDropdown didSelectRowInSubTable:(NSInteger)subRow inMainTable:(NSInteger)mainRow
+{
+    Categorys *category = [MetaTool categories][mainRow];
+    [MTNotificationCenter postNotificationName:CategoryDidChangeNotification object:nil userInfo:
+     @{SelectCategory : category , SelectSubCategoryName : category.subcategories[subRow]}];
 }
 @end

@@ -20,3 +20,11 @@
 
 #define SortDidChangeNotification @"SortDidChangeNotification"
 #define SelectSort @"SelectSort"
+
+#define RegionDidChangeNotification @"RegionDidChangeNotification"
+#define SelectRegion @"SelectRegion"
+#define SelectSubRegionName @"SelectSubRegionName"
+
+#define CategoryDidChangeNotification @"CategoryDidChangeNotification"
+#define SelectCategory @"SelectCategory"
+#define SelectSubCategoryName @"SelectSubCategoryName"
