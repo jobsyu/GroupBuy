@@ -22,6 +22,7 @@
 #import "DealCell.h"
 #import "Deal.h"
 #import "MJExtension.h"
+#import "MJRefresh.h"
 
 
 @interface HomeViewController()<DPRequestDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
@@ -39,6 +40,9 @@
 @property (nonatomic,strong) Sort *selectedSort;
 
 @property (nonatomic,strong) NSMutableArray *deals;
+
+@property (nonatomic,assign) int currentPage;
+@property (nonatomic,assign) DPRequest *lastRequest;
 @end
 
 @implementation HomeViewController
@@ -71,6 +75,7 @@ static NSString * const reuseIdentifier = @"deal";
     
     //Register cell classes
     [self.collectionView registerNib:[UINib nibWithNibName:@"DealCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
+    self.collectionView.alwaysBounceVertical =YES;
     
     //监听通知
     [MTNotificationCenter addObserver:self selector:@selector(cityDidChange:) name:CityDidChangeNotification object:nil];
@@ -81,8 +86,26 @@ static NSString * const reuseIdentifier = @"deal";
     //设置导航栏内容
     [self setupLeftNav];
     [self setupRightNav];
+    
+    [self.collectionView addFooterWithTarget:self action:@selector(loadMoreDeals)];
 }
 
+/**
+ 当屏幕旋转,控制器view的尺寸发生改变调用
+ */
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    // 根据屏幕宽度决定列数
+    int cols = (size.width == 1024) ? 3 : 2;
+    
+    // 根据列数计算内边距
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
+    CGFloat inset = (size.width - cols * layout.itemSize.width) / (cols + 1);
+    layout.sectionInset = UIEdgeInsetsMake(inset, inset, inset, inset);
+    
+    // 设置每一行之间的间距
+    layout.minimumLineSpacing = inset;
+}
 
 -(void)dealloc
 {
@@ -149,15 +172,15 @@ static NSString * const reuseIdentifier = @"deal";
 
 -(void)sortDidChange:(NSNotification *)notification
 {
-    Sort *sort = notification.userInfo[SelectSort];
+    self.selectedSort = notification.userInfo[SelectSort];
     HomeTopItem *topItem = (HomeTopItem *)self.sortItem.customView;
-    [topItem setTitle:sort.label];
+    [topItem setTitle:self.selectedSort.label];
     [self.sortPopover dismissPopoverAnimated:YES];
     [self loadNewDeals];
 }
 
 #pragma mark －跟服务器交互
--(void)loadNewDeals
+-(void)loadDeals
 {
     DPAPI *api = [[DPAPI alloc] init];
     NSMutableDictionary *params =[NSMutableDictionary dictionary];
@@ -177,20 +200,39 @@ static NSString * const reuseIdentifier = @"deal";
     if(self.selectedSort){
         params[@"sort"] = @(self.selectedSort.value);
     }
-    [api requestWithURL:@"v1/deal/find_deals" params:params delegate:self];
+    //页码
+    params[@"page"] = @(self.currentPage);
+    self.lastRequest = [api requestWithURL:@"v1/deal/find_deals" params:params delegate:self];
+}
+
+-(void)loadMoreDeals
+{
+    self.currentPage++;
     
-    GBLog(@"请求参数:%@",params);
+    [self loadDeals];
+}
+
+-(void)loadNewDeals
+{
+    self.currentPage = 1;
+    
+    [self loadDeals];
 }
 
 -(void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
 {
-    GBLog(@"请求成功--%@",result);
+    if(request != self.lastRequest) return;
     //1.取出团购的字典数组
     NSArray *newDeals = [Deal objectArrayWithKeyValuesArray:result[@"deals"]];
-    [self.deals removeAllObjects];
+    if(self.currentPage == 1){//清除之前的旧数据
+       [self.deals removeAllObjects];
+    }
     [self.deals addObjectsFromArray:newDeals];
-    
+    //2.刷新表格
     [self.collectionView reloadData];
+    
+    //3.结束上拉加载
+    [self.collectionView footerEndRefreshing];
 }
 
 -(void)request:(DPRequest *)request didFailWithError:(NSError *)error
