@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC15477A1B4E039D0013C0DD /* SortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547791B4E039D0013C0DD /* SortViewController.m */; };
 		BC5CDEC91B4D20A200D43BB5 /* CitySearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */; };
 		BC5CDECE1B4D260000D43BB5 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDECC1B4D260000D43BB5 /* UIView+AutoLayout.m */; };
+		BC5CDED21B4D428600D43BB5 /* MetaTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDED11B4D428600D43BB5 /* MetaTool.m */; };
+		BC5CDED51B4D4E2300D43BB5 /* Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDED41B4D4E2300D43BB5 /* Sort.m */; };
 		BCDC980F1B4CAB0800B78E6F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDC980E1B4CAB0800B78E6F /* main.m */; };
 		BCDC98121B4CAB0800B78E6F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDC98111B4CAB0800B78E6F /* AppDelegate.m */; };
 		BCDC981A1B4CAB0800B78E6F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCDC98191B4CAB0800B78E6F /* Images.xcassets */; };
@@ -69,10 +72,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC1547781B4E039D0013C0DD /* SortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortViewController.h; sourceTree = "<group>"; };
+		BC1547791B4E039D0013C0DD /* SortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortViewController.m; sourceTree = "<group>"; };
 		BC5CDEC71B4D20A200D43BB5 /* CitySearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySearchResultViewController.h; sourceTree = "<group>"; };
 		BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySearchResultViewController.m; sourceTree = "<group>"; };
 		BC5CDECB1B4D260000D43BB5 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
 		BC5CDECC1B4D260000D43BB5 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
+		BC5CDED01B4D428600D43BB5 /* MetaTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaTool.h; sourceTree = "<group>"; };
+		BC5CDED11B4D428600D43BB5 /* MetaTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaTool.m; sourceTree = "<group>"; };
+		BC5CDED31B4D4E2300D43BB5 /* Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sort.h; sourceTree = "<group>"; };
+		BC5CDED41B4D4E2300D43BB5 /* Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sort.m; sourceTree = "<group>"; };
 		BCDC98091B4CAB0800B78E6F /* GroupBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCDC980D1B4CAB0800B78E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCDC980E1B4CAB0800B78E6F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -187,6 +196,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC5CDECF1B4D425500D43BB5 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				BC5CDED01B4D428600D43BB5 /* MetaTool.h */,
+				BC5CDED11B4D428600D43BB5 /* MetaTool.m */,
+			);
+			name = Tool;
+			sourceTree = "<group>";
+		};
 		BCDC98001B4CAB0800B78E6F = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +289,7 @@
 		BCDC98461B4CBF7E00B78E6F /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
+				BC5CDECF1B4D425500D43BB5 /* Tool */,
 				BCDC98541B4CCDF700B78E6F /* Model */,
 				BCDC984B1B4CBFF600B78E6F /* View */,
 				BCDC984A1B4CBFEA00B78E6F /* Controller */,
@@ -320,6 +339,8 @@
 				BCDC98B51B4CFD6800B78E6F /* CityViewController.xib */,
 				BC5CDEC71B4D20A200D43BB5 /* CitySearchResultViewController.h */,
 				BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */,
+				BC1547781B4E039D0013C0DD /* SortViewController.h */,
+				BC1547791B4E039D0013C0DD /* SortViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -352,6 +373,8 @@
 				BCDC98BB1B4D160100B78E6F /* Region.m */,
 				BCDC98BD1B4D166800B78E6F /* City.h */,
 				BCDC98BE1B4D166800B78E6F /* City.m */,
+				BC5CDED31B4D4E2300D43BB5 /* Sort.h */,
+				BC5CDED41B4D4E2300D43BB5 /* Sort.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -551,10 +574,13 @@
 				BCDC98381B4CAD2900B78E6F /* UIView+Extension.m in Sources */,
 				BCDC98AF1B4CFC1D00B78E6F /* RegionViewController.m in Sources */,
 				BCDC98BC1B4D160100B78E6F /* Region.m in Sources */,
+				BC15477A1B4E039D0013C0DD /* SortViewController.m in Sources */,
+				BC5CDED21B4D428600D43BB5 /* MetaTool.m in Sources */,
 				BCDC989C1B4CF51000B78E6F /* MJMethod.m in Sources */,
 				BCDC989E1B4CF51000B78E6F /* MJTypeEncoding.m in Sources */,
 				BCDC98B91B4D044A00B78E6F /* CityGroup.m in Sources */,
 				BCDC989F1B4CF51000B78E6F /* NSObject+MJCoding.m in Sources */,
+				BC5CDED51B4D4E2300D43BB5 /* Sort.m in Sources */,
 				BCDC989A1B4CF51000B78E6F /* MJIvar.m in Sources */,
 				BCDC98341B4CABDC00B78E6F /* HomeViewController.m in Sources */,
 				BC5CDECE1B4D260000D43BB5 /* UIView+AutoLayout.m in Sources */,

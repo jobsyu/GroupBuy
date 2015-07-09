@@ -12,6 +12,11 @@
 #import "HomeTopItem.h"
 #import "CategoryViewController.h"
 #import "RegionViewController.h"
+#import "City.h"
+#import "MetaTool.h"
+#import "SortViewController.h"
+#import "Sort.h"
+
 
 @interface HomeViewController()
 @property (nonatomic,weak) UIBarButtonItem *categoryItem;
@@ -20,6 +25,7 @@
 
 @property (nonatomic,strong) UIPopoverController *popover;
 
+@property (nonatomic,copy) NSString *selectedCityName;
 @end
 
 @implementation HomeViewController
@@ -46,6 +52,8 @@ static NSString * const reuseIdentifier = @"Cell";
     //监听通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cityDidChange:) name:CityDidChangeNotification object:nil];
     
+    [MTNotificationCenter addObserver:self selector:@selector(sortDidChange:) name:SortDidChangeNotification object:nil];
+    
     //设置导航栏内容
     [self setupLeftNav];
     [self setupRightNav];
@@ -54,16 +62,23 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:nil];
+    [MTNotificationCenter removeObserver:nil];
 }
 
 #pragma mark －点击城市通知事件
 -(void)cityDidChange:(NSNotification *)notification
 {
-    NSString *cityName = notification.userInfo[SelectCityName];
+    self.selectedCityName = notification.userInfo[SelectCityName];
     HomeTopItem *topItem = (HomeTopItem *)self.regionItem.customView;
-    [topItem setTitle:[NSString stringWithFormat:@"%@ - 全部",cityName]];
+    [topItem setTitle:[NSString stringWithFormat:@"%@ - 全部",self.selectedCityName]];
     [topItem setSubTitle:nil];
+}
+     
+-(void)sortDidChange:(NSNotification *)notification
+{
+    Sort *sort = notification.userInfo[SelectSort];
+    HomeTopItem *topItem = (HomeTopItem *)self.sortItem.customView;
+    [topItem setTitle:sort.label];
 }
 
 #pragma mark 设置导航栏内容
@@ -119,14 +134,20 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)regionClick
 {
-    UIPopoverController *regionPopover = [[UIPopoverController alloc] initWithContentViewController:[[RegionViewController alloc] init]];
-    
+    RegionViewController *region = [[RegionViewController alloc] init];
+    if (self.selectedCityName) {
+        City *city = [[[MetaTool cities] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"name = %@",self.selectedCityName]] firstObject];
+        region.regions = city.regions;
+        
+    }
+    UIPopoverController *regionPopover = [[UIPopoverController alloc] initWithContentViewController:region];
     [regionPopover presentPopoverFromBarButtonItem:self.regionItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 -(void)sortClick
 {
-   
+    UIPopoverController *sortPopover = [[UIPopoverController alloc] initWithContentViewController:[[SortViewController alloc] init]];
+    [sortPopover presentPopoverFromBarButtonItem:self.sortItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 @end

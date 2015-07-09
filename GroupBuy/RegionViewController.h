@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface RegionViewController : UIViewController
-
+@property (nonatomic,strong) NSArray *regions;
 @end

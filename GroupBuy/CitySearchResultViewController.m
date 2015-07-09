@@ -29,7 +29,7 @@
 
 -(void)setSearchText:(NSString *)searchText
 {
-    _searchText = searchText;
+    _searchText = [searchText copy];
     
     searchText =searchText.lowercaseString;
     

@@ -14,6 +14,9 @@
 #import "UIBarButtonItem+Extension.h"
 #import "UIView+AutoLayout.h"
 
+#define MTNotificationCenter [NSNotificationCenter defaultCenter]
 #define CityDidChangeNotification @"CityDidChangeNotification"
 #define SelectCityName @"SelectCityName"
 
+#define SortDidChangeNotification @"SortDidChangeNotification"
+#define SelectSort @"SelectSort"

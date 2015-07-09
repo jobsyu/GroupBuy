@@ -10,6 +10,11 @@
 #import "HomeDropdown.h"
 #import "MJExtension.h"
 #import "Categorys.h"
+#import "MetaTool.h"
+
+@interface CategoryViewController()<HomeDropdownDataSource>
+
+@end
 
 @implementation CategoryViewController
 
@@ -18,11 +23,41 @@
     
     HomeDropdown *dropDown = [HomeDropdown dropdown];
     //加载分类数据
-    dropDown.categories = [Categorys objectArrayWithFilename:@"categories.plist"];
-    [self.view addSubview:dropDown];
+    //dropDown.categories = [Categorys objectArrayWithFilename:@"categories.plist"];
+    dropDown.dataSource =self;
+    self.view =dropDown;
     
     //设置控制器view在popover中的尺寸
     self.preferredContentSize = dropDown.size;
 }
 
+#pragma mark HomeDropdownDataSource
+-(NSInteger)numberOfRowsInMainTable:(HomeDropdown *)homeDropdown
+{
+    return [MetaTool categories].count;
+}
+
+-(NSString *)homeDropdown:(HomeDropdown *)homeDropdown titleForRowInMainTable:(NSInteger)row
+{
+    Categorys *category = [MetaTool categories][row];
+    return category.name;
+}
+
+-(NSArray *)homeDropdown:(HomeDropdown *)homeDropdown subdataForRowInMainTable:(NSInteger)row
+{
+    Categorys *category = [MetaTool categories][row];
+    return category.subcategories;
+}
+
+-(NSString *)homeDropdown:(HomeDropdown *)homeDropdown iconForRowInMainTable:(NSInteger)row
+{
+    Categorys *category = [MetaTool categories][row];
+    return category.small_icon;
+}
+
+-(NSString *)homeDropdown:(HomeDropdown *)homeDropdown selectedIconForRowInMainTable:(NSInteger)row
+{
+    Categorys *category = [MetaTool categories][row];
+    return category.small_highlighted_icon;
+}
 @end
