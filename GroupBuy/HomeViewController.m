@@ -18,14 +18,13 @@
 #import "Sort.h"
 #import "Categorys.h"
 #import "Region.h"
-#import "DPAPI.h"
-#import "DealCell.h"
 #import "Deal.h"
-#import "MJExtension.h"
 #import "MJRefresh.h"
+#import "NavigationController.h"
+#import "SearchViewController.h"
 
 
-@interface HomeViewController()<DPRequestDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
+@interface HomeViewController()
 @property (nonatomic,weak) UIBarButtonItem *categoryItem;
 @property (nonatomic,weak) UIBarButtonItem *regionItem;
 @property (nonatomic,weak) UIBarButtonItem *sortItem;
@@ -38,44 +37,11 @@
 @property (nonatomic,copy) NSString *selectedRegionName;
 @property (nonatomic,copy) NSString *selectedCategoryName;
 @property (nonatomic,strong) Sort *selectedSort;
-
-@property (nonatomic,strong) NSMutableArray *deals;
-
-@property (nonatomic,assign) int currentPage;
-@property (nonatomic,assign) DPRequest *lastRequest;
 @end
 
 @implementation HomeViewController
-
-static NSString * const reuseIdentifier = @"deal";
-
-
--(instancetype)init
-{
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    //cell的大小
-    layout.itemSize = CGSizeMake(305, 305);
-    return [self initWithCollectionViewLayout:layout];
-}
-
--(NSMutableArray *)deals
-{
-    if (!_deals) {
-        self.deals = [[NSMutableArray alloc] init];
-    }
-    return _deals;
-}
-
-
 -(void)viewDidLoad{
     [super viewDidLoad];
-    
-    //设置背景色
-    self.collectionView.backgroundColor = GBGlobalBg;
-    
-    //Register cell classes
-    [self.collectionView registerNib:[UINib nibWithNibName:@"DealCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
-    self.collectionView.alwaysBounceVertical =YES;
     
     //监听通知
     [MTNotificationCenter addObserver:self selector:@selector(cityDidChange:) name:CityDidChangeNotification object:nil];
@@ -86,26 +52,8 @@ static NSString * const reuseIdentifier = @"deal";
     //设置导航栏内容
     [self setupLeftNav];
     [self setupRightNav];
-    
-    [self.collectionView addFooterWithTarget:self action:@selector(loadMoreDeals)];
 }
 
-/**
- 当屏幕旋转,控制器view的尺寸发生改变调用
- */
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
-{
-    // 根据屏幕宽度决定列数
-    int cols = (size.width == 1024) ? 3 : 2;
-    
-    // 根据列数计算内边距
-    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
-    CGFloat inset = (size.width - cols * layout.itemSize.width) / (cols + 1);
-    layout.sectionInset = UIEdgeInsetsMake(inset, inset, inset, inset);
-    
-    // 设置每一行之间的间距
-    layout.minimumLineSpacing = inset;
-}
 
 -(void)dealloc
 {
@@ -119,7 +67,8 @@ static NSString * const reuseIdentifier = @"deal";
     HomeTopItem *topItem = (HomeTopItem *)self.regionItem.customView;
     [topItem setTitle:[NSString stringWithFormat:@"%@ - 全部",self.selectedCityName]];
     [topItem setSubTitle:nil];
-    [self loadNewDeals];
+    
+    [self.collectionView headerBeginRefreshing];
 }
 
 -(void)categoryDidChange:(NSNotification *)notification
@@ -144,7 +93,7 @@ static NSString * const reuseIdentifier = @"deal";
     
     [self.categoryPopover dismissPopoverAnimated:YES];
     
-    [self loadNewDeals];
+    [self.collectionView headerBeginRefreshing];
 }
 
 -(void)regionDidChange:(NSNotification *)notification
@@ -167,7 +116,7 @@ static NSString * const reuseIdentifier = @"deal";
     [regionItem setSubTitle:subRegion];
     
     [self.regionPopover dismissPopoverAnimated:YES];
-    [self loadNewDeals];
+    [self.collectionView headerBeginRefreshing];
 }
 
 -(void)sortDidChange:(NSNotification *)notification
@@ -176,18 +125,14 @@ static NSString * const reuseIdentifier = @"deal";
     HomeTopItem *topItem = (HomeTopItem *)self.sortItem.customView;
     [topItem setTitle:self.selectedSort.label];
     [self.sortPopover dismissPopoverAnimated:YES];
-    [self loadNewDeals];
+    [self.collectionView headerBeginRefreshing];
 }
 
-#pragma mark －跟服务器交互
--(void)loadDeals
+#pragma mark －实现夫类提供的方法
+-(void)setupParams:(NSMutableDictionary *)params
 {
-    DPAPI *api = [[DPAPI alloc] init];
-    NSMutableDictionary *params =[NSMutableDictionary dictionary];
     //城市
     params[@"city"] = self.selectedCityName;
-    //每页的条数
-    params[@"limit"] =@5;
     //分类（类别）
     if (self.selectedCategoryName) {
         params[@"category"] =self.selectedCategoryName;
@@ -200,45 +145,8 @@ static NSString * const reuseIdentifier = @"deal";
     if(self.selectedSort){
         params[@"sort"] = @(self.selectedSort.value);
     }
-    //页码
-    params[@"page"] = @(self.currentPage);
-    self.lastRequest = [api requestWithURL:@"v1/deal/find_deals" params:params delegate:self];
 }
 
--(void)loadMoreDeals
-{
-    self.currentPage++;
-    
-    [self loadDeals];
-}
-
--(void)loadNewDeals
-{
-    self.currentPage = 1;
-    
-    [self loadDeals];
-}
-
--(void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
-{
-    if(request != self.lastRequest) return;
-    //1.取出团购的字典数组
-    NSArray *newDeals = [Deal objectArrayWithKeyValuesArray:result[@"deals"]];
-    if(self.currentPage == 1){//清除之前的旧数据
-       [self.deals removeAllObjects];
-    }
-    [self.deals addObjectsFromArray:newDeals];
-    //2.刷新表格
-    [self.collectionView reloadData];
-    
-    //3.结束上拉加载
-    [self.collectionView footerEndRefreshing];
-}
-
--(void)request:(DPRequest *)request didFailWithError:(NSError *)error
-{
-    GBLog(@"请求失败--%@",error);
-}
 
 #pragma mark 设置导航栏内容
 -(void)setupLeftNav
@@ -273,7 +181,7 @@ static NSString * const reuseIdentifier = @"deal";
 
 -(void)setupRightNav
 {
-    UIBarButtonItem *searchItem = [UIBarButtonItem itemWithTarget:nil action:nil image:@"icon_search" selectedImage:@"icon_search_highlighted"];
+    UIBarButtonItem *searchItem = [UIBarButtonItem itemWithTarget:self action:@selector(search) image:@"icon_search" selectedImage:@"icon_search_highlighted"];
     searchItem.customView.width = rightNavWidth;
     
     UIBarButtonItem *mapItem = [UIBarButtonItem itemWithTarget:nil action:nil image:@"icon_map" selectedImage:@"icon_map_highlighted"];
@@ -283,7 +191,15 @@ static NSString * const reuseIdentifier = @"deal";
 }
 
 
+
 #pragma mark 顶部item点击方法
+
+-(void)search
+{
+    NavigationController *nav = [[NavigationController alloc] initWithRootViewController:[[SearchViewController alloc] init]];
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
 -(void)categoryClick
 {
     self.categoryPopover = [[UIPopoverController alloc] initWithContentViewController:[[CategoryViewController alloc]init]];
@@ -311,25 +227,5 @@ static NSString * const reuseIdentifier = @"deal";
     [self.sortPopover presentPopoverFromBarButtonItem:self.sortItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
-#pragma mark UICollectionView 数据源
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 1;
-}
 
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return self.deals.count;
-}
-
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    DealCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-    cell.deal = self.deals[indexPath.item];
-    
-    return cell;
-}
-
-#pragma mark UICollectionViewDelegate 方法
 @end

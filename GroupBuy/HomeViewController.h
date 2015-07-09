@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 ycp. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "DealsViewController.h"
 
-@interface HomeViewController : UICollectionViewController
+@interface HomeViewController :DealsViewController
 
 @end

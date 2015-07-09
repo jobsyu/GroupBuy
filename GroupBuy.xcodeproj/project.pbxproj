@@ -38,6 +38,11 @@
 		BC1547D61B4E61F30013C0DD /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547CC1B4E61F30013C0DD /* UIScrollView+MJExtension.m */; };
 		BC1547D71B4E61F30013C0DD /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547CE1B4E61F30013C0DD /* UIScrollView+MJRefresh.m */; };
 		BC1547D81B4E61F30013C0DD /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547D01B4E61F30013C0DD /* UIView+MJExtension.m */; };
+		BC1547DB1B4E64F00013C0DD /* DealsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547DA1B4E64F00013C0DD /* DealsViewController.m */; };
+		BC1547E21B4E68550013C0DD /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547DE1B4E68550013C0DD /* MBProgressHUD+MJ.m */; };
+		BC1547E31B4E68550013C0DD /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC1547DF1B4E68550013C0DD /* MBProgressHUD.bundle */; };
+		BC1547E41B4E68550013C0DD /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547E11B4E68550013C0DD /* MBProgressHUD.m */; };
+		BC1547E91B4E6C5A0013C0DD /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547E81B4E6C5A0013C0DD /* SearchViewController.m */; };
 		BC5CDEC91B4D20A200D43BB5 /* CitySearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */; };
 		BC5CDECE1B4D260000D43BB5 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDECC1B4D260000D43BB5 /* UIView+AutoLayout.m */; };
 		BC5CDED21B4D428600D43BB5 /* MetaTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDED11B4D428600D43BB5 /* MetaTool.m */; };
@@ -165,6 +170,15 @@
 		BC1547CE1B4E61F30013C0DD /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		BC1547CF1B4E61F30013C0DD /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		BC1547D01B4E61F30013C0DD /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		BC1547D91B4E64F00013C0DD /* DealsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealsViewController.h; sourceTree = "<group>"; };
+		BC1547DA1B4E64F00013C0DD /* DealsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealsViewController.m; sourceTree = "<group>"; };
+		BC1547DD1B4E68550013C0DD /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
+		BC1547DE1B4E68550013C0DD /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		BC1547DF1B4E68550013C0DD /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		BC1547E01B4E68550013C0DD /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		BC1547E11B4E68550013C0DD /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		BC1547E71B4E6C5A0013C0DD /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		BC1547E81B4E6C5A0013C0DD /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		BC5CDEC71B4D20A200D43BB5 /* CitySearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySearchResultViewController.h; sourceTree = "<group>"; };
 		BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySearchResultViewController.m; sourceTree = "<group>"; };
 		BC5CDECB1B4D260000D43BB5 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
@@ -362,6 +376,35 @@
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
+		BC1547DC1B4E68550013C0DD /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				BC1547DD1B4E68550013C0DD /* MBProgressHUD+MJ.h */,
+				BC1547DE1B4E68550013C0DD /* MBProgressHUD+MJ.m */,
+				BC1547DF1B4E68550013C0DD /* MBProgressHUD.bundle */,
+				BC1547E01B4E68550013C0DD /* MBProgressHUD.h */,
+				BC1547E11B4E68550013C0DD /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		BC1547E51B4E6C0A0013C0DD /* Search(搜索) */ = {
+			isa = PBXGroup;
+			children = (
+				BC1547E61B4E6C1E0013C0DD /* Controller */,
+			);
+			name = "Search(搜索)";
+			sourceTree = "<group>";
+		};
+		BC1547E61B4E6C1E0013C0DD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC1547E71B4E6C5A0013C0DD /* SearchViewController.h */,
+				BC1547E81B4E6C5A0013C0DD /* SearchViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		BC5CDECF1B4D425500D43BB5 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +435,7 @@
 		BCDC980B1B4CAB0800B78E6F /* GroupBuy */ = {
 			isa = PBXGroup;
 			children = (
+				BC1547E51B4E6C0A0013C0DD /* Search(搜索) */,
 				BCDC98461B4CBF7E00B78E6F /* Home(首页) */,
 				BCDC98451B4CBF7000B78E6F /* Main(主要) */,
 				BCDC980C1B4CAB0800B78E6F /* Supporting Files */,
@@ -468,6 +512,8 @@
 			children = (
 				BCDC98421B4CB3B800B78E6F /* NavigationController.h */,
 				BCDC98431B4CB3B800B78E6F /* NavigationController.m */,
+				BC1547D91B4E64F00013C0DD /* DealsViewController.h */,
+				BC1547DA1B4E64F00013C0DD /* DealsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -484,6 +530,7 @@
 		BCDC98491B4CBFC300B78E6F /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				BC1547DC1B4E68550013C0DD /* MBProgressHUD */,
 				BC1547C01B4E61F30013C0DD /* MJRefresh */,
 				BC15478B1B4E4A9C0013C0DD /* SDWebImage */,
 				BC15477B1B4E261C0013C0DD /* dianpingapi */,
@@ -711,6 +758,7 @@
 				BCDC983E1B4CB31C00B78E6F /* HomeTopItem.xib in Resources */,
 				BCDC98AC1B4CF85900B78E6F /* sorts.plist in Resources */,
 				BCDC98B11B4CFCB000B78E6F /* RegionViewController.xib in Resources */,
+				BC1547E31B4E68550013C0DD /* MBProgressHUD.bundle in Resources */,
 				BCDC981A1B4CAB0800B78E6F /* Images.xcassets in Resources */,
 				BCDC98AA1B4CF85900B78E6F /* cities.plist in Resources */,
 				BC1547D11B4E61F30013C0DD /* MJRefresh.bundle in Resources */,
@@ -748,11 +796,13 @@
 				BC1547B01B4E4A9C0013C0DD /* SDWebImageCompat.m in Sources */,
 				BCDC987D1B4CF50A00B78E6F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				BCDC98BF1B4D166800B78E6F /* City.m in Sources */,
+				BC1547E91B4E6C5A0013C0DD /* SearchViewController.m in Sources */,
 				BCDC98121B4CAB0800B78E6F /* AppDelegate.m in Sources */,
 				BC1547AE1B4E4A9C0013C0DD /* NSData+ImageContentType.m in Sources */,
 				BCDC980F1B4CAB0800B78E6F /* main.m in Sources */,
 				BCDC987A1B4CF50A00B78E6F /* MASViewAttribute.m in Sources */,
 				BCDC98791B4CF50A00B78E6F /* MASLayoutConstraint.m in Sources */,
+				BC1547DB1B4E64F00013C0DD /* DealsViewController.m in Sources */,
 				BC1547BA1B4E4A9C0013C0DD /* UIImageView+HighlightedWebCache.m in Sources */,
 				BC1547D61B4E61F30013C0DD /* UIScrollView+MJExtension.m in Sources */,
 				BCDC98761B4CF50A00B78E6F /* MASCompositeConstraint.m in Sources */,
@@ -769,6 +819,7 @@
 				BCDC989C1B4CF51000B78E6F /* MJMethod.m in Sources */,
 				BCDC989E1B4CF51000B78E6F /* MJTypeEncoding.m in Sources */,
 				BC1547821B4E261C0013C0DD /* DPRequest.m in Sources */,
+				BC1547E21B4E68550013C0DD /* MBProgressHUD+MJ.m in Sources */,
 				BCDC98B91B4D044A00B78E6F /* CityGroup.m in Sources */,
 				BC1547B31B4E4A9C0013C0DD /* SDWebImageDownloaderOperation.m in Sources */,
 				BC1547D51B4E61F30013C0DD /* MJRefreshHeaderView.m in Sources */,
@@ -802,6 +853,7 @@
 				BCDC985A1B4CD29100B78E6F /* HomeDropdownMainCell.m in Sources */,
 				BCDC98771B4CF50A00B78E6F /* MASConstraint.m in Sources */,
 				BC1547B71B4E4A9C0013C0DD /* UIImage+GIF.m in Sources */,
+				BC1547E41B4E68550013C0DD /* MBProgressHUD.m in Sources */,
 				BCDC98441B4CB3B800B78E6F /* NavigationController.m in Sources */,
 				BCDC987E1B4CF50A00B78E6F /* View+MASAdditions.m in Sources */,
 			);
