@@ -28,3 +28,7 @@
 #define CategoryDidChangeNotification @"CategoryDidChangeNotification"
 #define SelectCategory @"SelectCategory"
 #define SelectSubCategoryName @"SelectSubCategoryName"
+
+#define CollectDidChangeNotification @"CollectDidChangeNotification"
+#define IsCollectKey @"IsCollectKey"
+#define CollectDealKey  @"CollectDealKey"

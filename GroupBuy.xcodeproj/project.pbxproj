@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC10EB6C1B4F664F004B8887 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC10EB6B1B4F664F004B8887 /* libsqlite3.dylib */; };
 		BC15477A1B4E039D0013C0DD /* SortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547791B4E039D0013C0DD /* SortViewController.m */; };
 		BC1547811B4E261C0013C0DD /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BC15477D1B4E261C0013C0DD /* DPAPI.m */; };
 		BC1547821B4E261C0013C0DD /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547801B4E261C0013C0DD /* DPRequest.m */; };
@@ -48,7 +49,14 @@
 		BC1547F71B4E79610013C0DD /* CollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547F61B4E79610013C0DD /* CollectViewController.m */; };
 		BC1547FA1B4E79870013C0DD /* RecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547F91B4E79870013C0DD /* RecentViewController.m */; };
 		BC1547FF1B4E8B190013C0DD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1547FE1B4E8B190013C0DD /* DetailViewController.m */; };
-		BC1548011B4E8B5F0013C0DD /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1548001B4E8B5F0013C0DD /* DetailViewController.xib */; };
+		BC1548031B4E966B0013C0DD /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1548021B4E966B0013C0DD /* DetailViewController.xib */; };
+		BC1548061B4E99290013C0DD /* Restrictions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1548051B4E99290013C0DD /* Restrictions.m */; };
+		BC15480A1B4EA2030013C0DD /* DealTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1548091B4EA2030013C0DD /* DealTool.m */; };
+		BC1548171B4EA2290013C0DD /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BC15480D1B4EA2290013C0DD /* FMDatabase.m */; };
+		BC1548181B4EA2290013C0DD /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC15480F1B4EA2290013C0DD /* FMDatabaseAdditions.m */; };
+		BC1548191B4EA2290013C0DD /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1548111B4EA2290013C0DD /* FMDatabasePool.m */; };
+		BC15481A1B4EA2290013C0DD /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1548131B4EA2290013C0DD /* FMDatabaseQueue.m */; };
+		BC15481B1B4EA2290013C0DD /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1548161B4EA2290013C0DD /* FMResultSet.m */; };
 		BC5CDEC91B4D20A200D43BB5 /* CitySearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */; };
 		BC5CDECE1B4D260000D43BB5 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDECC1B4D260000D43BB5 /* UIView+AutoLayout.m */; };
 		BC5CDED21B4D428600D43BB5 /* MetaTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5CDED11B4D428600D43BB5 /* MetaTool.m */; };
@@ -113,6 +121,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC10EB6B1B4F664F004B8887 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		BC1547781B4E039D0013C0DD /* SortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortViewController.h; sourceTree = "<group>"; };
 		BC1547791B4E039D0013C0DD /* SortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortViewController.m; sourceTree = "<group>"; };
 		BC15477C1B4E261C0013C0DD /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
@@ -195,7 +204,22 @@
 		BC1547F91B4E79870013C0DD /* RecentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentViewController.m; sourceTree = "<group>"; };
 		BC1547FD1B4E8B190013C0DD /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		BC1547FE1B4E8B190013C0DD /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		BC1548001B4E8B5F0013C0DD /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		BC1548021B4E966B0013C0DD /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		BC1548041B4E99290013C0DD /* Restrictions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restrictions.h; sourceTree = "<group>"; };
+		BC1548051B4E99290013C0DD /* Restrictions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restrictions.m; sourceTree = "<group>"; };
+		BC1548081B4EA2030013C0DD /* DealTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealTool.h; sourceTree = "<group>"; };
+		BC1548091B4EA2030013C0DD /* DealTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealTool.m; sourceTree = "<group>"; };
+		BC15480C1B4EA2290013C0DD /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		BC15480D1B4EA2290013C0DD /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		BC15480E1B4EA2290013C0DD /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		BC15480F1B4EA2290013C0DD /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		BC1548101B4EA2290013C0DD /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		BC1548111B4EA2290013C0DD /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		BC1548121B4EA2290013C0DD /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		BC1548131B4EA2290013C0DD /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		BC1548141B4EA2290013C0DD /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		BC1548151B4EA2290013C0DD /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		BC1548161B4EA2290013C0DD /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		BC5CDEC71B4D20A200D43BB5 /* CitySearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySearchResultViewController.h; sourceTree = "<group>"; };
 		BC5CDEC81B4D20A200D43BB5 /* CitySearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySearchResultViewController.m; sourceTree = "<group>"; };
 		BC5CDECB1B4D260000D43BB5 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
@@ -305,6 +329,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC10EB6C1B4F664F004B8887 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,9 +505,36 @@
 			children = (
 				BC1547FD1B4E8B190013C0DD /* DetailViewController.h */,
 				BC1547FE1B4E8B190013C0DD /* DetailViewController.m */,
-				BC1548001B4E8B5F0013C0DD /* DetailViewController.xib */,
+				BC1548021B4E966B0013C0DD /* DetailViewController.xib */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		BC1548071B4EA1EC0013C0DD /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				BC1548081B4EA2030013C0DD /* DealTool.h */,
+				BC1548091B4EA2030013C0DD /* DealTool.m */,
+			);
+			name = Tool;
+			sourceTree = "<group>";
+		};
+		BC15480B1B4EA2290013C0DD /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				BC15480C1B4EA2290013C0DD /* FMDatabase.h */,
+				BC15480D1B4EA2290013C0DD /* FMDatabase.m */,
+				BC15480E1B4EA2290013C0DD /* FMDatabaseAdditions.h */,
+				BC15480F1B4EA2290013C0DD /* FMDatabaseAdditions.m */,
+				BC1548101B4EA2290013C0DD /* FMDatabasePool.h */,
+				BC1548111B4EA2290013C0DD /* FMDatabasePool.m */,
+				BC1548121B4EA2290013C0DD /* FMDatabaseQueue.h */,
+				BC1548131B4EA2290013C0DD /* FMDatabaseQueue.m */,
+				BC1548141B4EA2290013C0DD /* FMDB.h */,
+				BC1548151B4EA2290013C0DD /* FMResultSet.h */,
+				BC1548161B4EA2290013C0DD /* FMResultSet.m */,
+			);
+			path = fmdb;
 			sourceTree = "<group>";
 		};
 		BC5CDECF1B4D425500D43BB5 /* Tool */ = {
@@ -497,6 +549,7 @@
 		BCDC98001B4CAB0800B78E6F = {
 			isa = PBXGroup;
 			children = (
+				BC10EB6B1B4F664F004B8887 /* libsqlite3.dylib */,
 				BCDC980B1B4CAB0800B78E6F /* GroupBuy */,
 				BCDC98251B4CAB0800B78E6F /* GroupBuyTests */,
 				BCDC980A1B4CAB0800B78E6F /* Products */,
@@ -571,6 +624,7 @@
 		BCDC98451B4CBF7000B78E6F /* Main(主要) */ = {
 			isa = PBXGroup;
 			children = (
+				BC1548071B4EA1EC0013C0DD /* Tool */,
 				BCDC98491B4CBFC300B78E6F /* Lib */,
 				BCDC98481B4CBFAE00B78E6F /* Other */,
 				BCDC98471B4CBFA100B78E6F /* Controller */,
@@ -613,6 +667,7 @@
 		BCDC98491B4CBFC300B78E6F /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				BC15480B1B4EA2290013C0DD /* fmdb */,
 				BC1547EA1B4E739C0013C0DD /* AwesomeMenu */,
 				BC1547DC1B4E68550013C0DD /* MBProgressHUD */,
 				BC1547C01B4E61F30013C0DD /* MJRefresh */,
@@ -682,6 +737,8 @@
 				BC5CDED41B4D4E2300D43BB5 /* Sort.m */,
 				BC1547831B4E435F0013C0DD /* Deal.h */,
 				BC1547841B4E435F0013C0DD /* Deal.m */,
+				BC1548041B4E99290013C0DD /* Restrictions.h */,
+				BC1548051B4E99290013C0DD /* Restrictions.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -841,7 +898,7 @@
 				BCDC98A91B4CF85900B78E6F /* categories.plist in Resources */,
 				BCDC983E1B4CB31C00B78E6F /* HomeTopItem.xib in Resources */,
 				BCDC98AC1B4CF85900B78E6F /* sorts.plist in Resources */,
-				BC1548011B4E8B5F0013C0DD /* DetailViewController.xib in Resources */,
+				BC1548031B4E966B0013C0DD /* DetailViewController.xib in Resources */,
 				BCDC98B11B4CFCB000B78E6F /* RegionViewController.xib in Resources */,
 				BC1547E31B4E68550013C0DD /* MBProgressHUD.bundle in Resources */,
 				BCDC981A1B4CAB0800B78E6F /* Images.xcassets in Resources */,
@@ -867,6 +924,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC15480A1B4EA2030013C0DD /* DealTool.m in Sources */,
 				BC1547D41B4E61F30013C0DD /* MJRefreshFooterView.m in Sources */,
 				BC1547811B4E261C0013C0DD /* DPAPI.m in Sources */,
 				BCDC98A11B4CF51000B78E6F /* NSObject+MJMember.m in Sources */,
@@ -885,11 +943,13 @@
 				BCDC987D1B4CF50A00B78E6F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				BCDC98BF1B4D166800B78E6F /* City.m in Sources */,
 				BC1547E91B4E6C5A0013C0DD /* SearchViewController.m in Sources */,
+				BC1548061B4E99290013C0DD /* Restrictions.m in Sources */,
 				BCDC98121B4CAB0800B78E6F /* AppDelegate.m in Sources */,
 				BC1547AE1B4E4A9C0013C0DD /* NSData+ImageContentType.m in Sources */,
 				BCDC980F1B4CAB0800B78E6F /* main.m in Sources */,
 				BCDC987A1B4CF50A00B78E6F /* MASViewAttribute.m in Sources */,
 				BCDC98791B4CF50A00B78E6F /* MASLayoutConstraint.m in Sources */,
+				BC1548191B4EA2290013C0DD /* FMDatabasePool.m in Sources */,
 				BC1547DB1B4E64F00013C0DD /* DealsViewController.m in Sources */,
 				BC1547BA1B4E4A9C0013C0DD /* UIImageView+HighlightedWebCache.m in Sources */,
 				BC1547D61B4E61F30013C0DD /* UIScrollView+MJExtension.m in Sources */,
@@ -904,15 +964,18 @@
 				BC15477A1B4E039D0013C0DD /* SortViewController.m in Sources */,
 				BC5CDED21B4D428600D43BB5 /* MetaTool.m in Sources */,
 				BC1547D81B4E61F30013C0DD /* UIView+MJExtension.m in Sources */,
+				BC1548171B4EA2290013C0DD /* FMDatabase.m in Sources */,
 				BCDC989C1B4CF51000B78E6F /* MJMethod.m in Sources */,
 				BCDC989E1B4CF51000B78E6F /* MJTypeEncoding.m in Sources */,
 				BC1547821B4E261C0013C0DD /* DPRequest.m in Sources */,
+				BC15481B1B4EA2290013C0DD /* FMResultSet.m in Sources */,
 				BC1547E21B4E68550013C0DD /* MBProgressHUD+MJ.m in Sources */,
 				BCDC98B91B4D044A00B78E6F /* CityGroup.m in Sources */,
 				BC1547B31B4E4A9C0013C0DD /* SDWebImageDownloaderOperation.m in Sources */,
 				BC1547D51B4E61F30013C0DD /* MJRefreshHeaderView.m in Sources */,
 				BC1547851B4E435F0013C0DD /* Deal.m in Sources */,
 				BCDC989F1B4CF51000B78E6F /* NSObject+MJCoding.m in Sources */,
+				BC1548181B4EA2290013C0DD /* FMDatabaseAdditions.m in Sources */,
 				BC5CDED51B4D4E2300D43BB5 /* Sort.m in Sources */,
 				BCDC989A1B4CF51000B78E6F /* MJIvar.m in Sources */,
 				BC1547D71B4E61F30013C0DD /* UIScrollView+MJRefresh.m in Sources */,
@@ -927,6 +990,7 @@
 				BC1547AF1B4E4A9C0013C0DD /* SDImageCache.m in Sources */,
 				BC1547B41B4E4A9C0013C0DD /* SDWebImageManager.m in Sources */,
 				BCDC98531B4CCCF800B78E6F /* HomeDropdown.m in Sources */,
+				BC15481A1B4EA2290013C0DD /* FMDatabaseQueue.m in Sources */,
 				BC1547B51B4E4A9C0013C0DD /* SDWebImagePrefetcher.m in Sources */,
 				BCDC98981B4CF51000B78E6F /* MJConst.m in Sources */,
 				BCDC98991B4CF51000B78E6F /* MJFoundation.m in Sources */,

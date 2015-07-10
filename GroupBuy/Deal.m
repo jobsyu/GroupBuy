@@ -7,10 +7,18 @@
 //
 
 #import "Deal.h"
+#import "MJExtension.h"
 
 @implementation Deal
 -(NSDictionary *)replacedKeyFromPropertyName
 {
     return @{@"desc" : @"description"};
 }
+
+-(BOOL)isEqual:(Deal *)object
+{
+    return [self.deal_id isEqual:object.deal_id];
+}
+
+MJCodingImplementation
 @end
