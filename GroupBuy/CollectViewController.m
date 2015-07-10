@@ -11,12 +11,13 @@
 #import "DealTool.h"
 #import "DealCell.h"
 #import "DetailViewController.h"
+#import "Deal.h"
 
 NSString *const Done =@"完成";
 NSString *const Edit = @"编辑";
 #define MTString(str) [NSString stringWithFormat:@"  %@  ", str]
 
-@interface CollectViewController()
+@interface CollectViewController()<DealCellDelegate>
 @property (nonatomic,weak) UIImageView *noDataView;
 @property (nonatomic,strong) NSMutableArray *deals;
 @property (nonatomic,assign) int currentPage;
@@ -120,10 +121,24 @@ static NSString *const reuseIdentifier =@"deal";
     if ([item.title isEqualToString:Edit]) {
         item.title = Done;
         self.navigationItem.leftBarButtonItems = @[self.backItem,self.selectAllItem,self.unselectAllItem,self.removeItem];
+        
+        //进入编辑状态
+        for (Deal *deal in self.deals) {
+            deal.editing =YES;
+        }
+        
     } else {
         item.title = Edit;
         self.navigationItem.leftBarButtonItems = @[self.backItem];
+        
+        //结束编辑状态
+        for (Deal *deal in self.deals) {
+            deal.editing = NO;
+        }
     }
+    
+    //刷新表格
+    [self.collectionView reloadData];
 }
 
 
@@ -157,19 +172,58 @@ static NSString *const reuseIdentifier =@"deal";
 
 -(void)selectAll
 {
+    for (Deal *deal in self.deals) {
+        deal.checking = YES;
+    }
+    [self.collectionView reloadData];
     
+    self.removeItem.enabled = YES;
 }
 
 -(void)unselectAll
 {
-   
+    for (Deal *deal in self.deals) {
+        deal.checking = NO;
+    }
+    
+    [self.collectionView reloadData];
+    
+    self.removeItem.enabled = NO;
 }
 
 -(void)remove
 {
+    NSMutableArray *tempArray =[NSMutableArray array];
+    for (Deal *deal in self.deals) {
+        if (deal.isChecking) {
+            [DealTool removeCollectDeal:deal];
+            
+            [tempArray addObject:deal];
+        }
+    }
     
+    [self.deals removeObjectsInArray:tempArray];
+    
+    [self.collectionView reloadData];
+    
+    self.removeItem.enabled = NO;
 }
 
+
+#pragma mark －cell代理
+-(void)dealCellCheckingStateDidChange:(DealCell *)cell
+{
+    BOOL hasChecking = NO;
+    for (Deal *deal in self.deals) {
+        if (deal.isChecking) {
+            hasChecking = YES;
+            break;
+        }
+    }
+//    [self.collectionView reloadData];
+    //根据有没有打勾的情况，决定删除按钮是否可用
+    self.removeItem.enabled = hasChecking;
+}
 /**
  当屏幕旋转,控制器view的尺寸发生改变调用
  */
@@ -206,6 +260,7 @@ static NSString *const reuseIdentifier =@"deal";
     DealCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     cell.deal = self.deals[indexPath.item];
+    cell.delegate = self;
     
     return cell;
 }
