@@ -108,6 +108,7 @@
 		BCDC98B91B4D044A00B78E6F /* CityGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDC98B81B4D044A00B78E6F /* CityGroup.m */; };
 		BCDC98BC1B4D160100B78E6F /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDC98BB1B4D160100B78E6F /* Region.m */; };
 		BCDC98BF1B4D166800B78E6F /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDC98BE1B4D166800B78E6F /* City.m */; };
+		C5CCE5B41B53DBCA0084EC4A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CCE5B31B53DBCA0084EC4A /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -322,6 +323,8 @@
 		BCDC98BB1B4D160100B78E6F /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
 		BCDC98BD1B4D166800B78E6F /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
 		BCDC98BE1B4D166800B78E6F /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		C5CCE5B21B53DBCA0084EC4A /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		C5CCE5B31B53DBCA0084EC4A /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -568,6 +571,7 @@
 		BCDC980B1B4CAB0800B78E6F /* GroupBuy */ = {
 			isa = PBXGroup;
 			children = (
+				C5CCE5B01B53DAEE0084EC4A /* Map(地图) */,
 				BC1547FB1B4E8AD70013C0DD /* Detail(详情) */,
 				BC1547F31B4E78F70013C0DD /* Collect(收藏) */,
 				BC1547F11B4E78D40013C0DD /* Recent(最近) */,
@@ -814,6 +818,23 @@
 			path = Plist;
 			sourceTree = "<group>";
 		};
+		C5CCE5B01B53DAEE0084EC4A /* Map(地图) */ = {
+			isa = PBXGroup;
+			children = (
+				C5CCE5B11B53DB0E0084EC4A /* Controller */,
+			);
+			name = "Map(地图)";
+			sourceTree = "<group>";
+		};
+		C5CCE5B11B53DB0E0084EC4A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C5CCE5B21B53DBCA0084EC4A /* MapViewController.h */,
+				C5CCE5B31B53DBCA0084EC4A /* MapViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1005,6 +1026,7 @@
 				BCDC985A1B4CD29100B78E6F /* HomeDropdownMainCell.m in Sources */,
 				BC1547FA1B4E79870013C0DD /* RecentViewController.m in Sources */,
 				BCDC98771B4CF50A00B78E6F /* MASConstraint.m in Sources */,
+				C5CCE5B41B53DBCA0084EC4A /* MapViewController.m in Sources */,
 				BC1547B71B4E4A9C0013C0DD /* UIImage+GIF.m in Sources */,
 				BC1547E41B4E68550013C0DD /* MBProgressHUD.m in Sources */,
 				BC1547F71B4E79610013C0DD /* CollectViewController.m in Sources */,
